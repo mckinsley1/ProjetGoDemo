@@ -1,0 +1,61 @@
+﻿@model ProjetGo.Membre
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Devenir membre de ProjetGo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Inscription</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.dateAdhesionMembre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.dateAdhesionMembre, new { @type = "date", @class = "form-control datepicker" })
+            @Html.ValidationMessageFor(model => model.dateAdhesionMembre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nomStatut, "Statut", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("nomStatut",
+             new SelectList(Enum.GetValues(typeof(Statut))),
+             "Sélectionner un statut",
+             new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.codeUser, "Nom", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("codeUser", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.codeUser, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <form action="https://www.sandbox.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="Q7JW9W22CYAEJ" />
+        <input type="image" src="https://www.paypalobjects.com/fr_CA/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+        <img alt="" border="0" src="https://www.sandbox.paypal.com/fr_CA/i/scr/pixel.gif" width="1" height="1" />
+    </form>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Créer" class="btn btn-b-n" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Retour à la liste", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

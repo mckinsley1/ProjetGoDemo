@@ -1,0 +1,42 @@
+﻿@model ProjetGo.Fichier
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fichier</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomAltFichier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomAltFichier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.linkFichier)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.linkFichier)" width="250" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Projet.titreProjet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Projet.titreProjet)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codefichier }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

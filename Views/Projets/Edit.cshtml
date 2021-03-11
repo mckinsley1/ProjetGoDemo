@@ -1,0 +1,141 @@
+﻿@model ProjetGo.Projet
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Modifier</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>
+        Description du projet
+    </h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.codeProjet)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.titreProjet, "Titre", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.titreProjet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.titreProjet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.descriptionCourteProjet, "Description", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.descriptionCourteProjet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.descriptionCourteProjet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.butProjet, "But", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.butProjet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.butProjet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.objectifProjet, "Objectif", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.objectifProjet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.objectifProjet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.statutProjet, "Statut", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.statutProjet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.statutProjet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.beneficesEscomptees, "Bénéfices", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.beneficesEscomptees, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.beneficesEscomptees, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.dateDebutEstimeeProjet, "Date début estimée", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.dateDebutEstimeeProjet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.dateDebutEstimeeProjet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.budgetProjet, "Budget", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.budgetProjet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.budgetProjet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.dateDebutReelleProjet, "Date début réelle", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.dateDebutReelleProjet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.dateDebutReelleProjet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.dateFinReelleProjet, "Date fin réelle", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.dateFinReelleProjet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.dateFinReelleProjet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.codefichier, "Code fichier", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.codefichier, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.codefichier, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.codeProjetCompteRendu, "Compte Rendu", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("codeProjetCompteRendu", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.codeProjetCompteRendu, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+   
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Enregistrer" class="btn btn-b-n" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Ajouter un compte rendu", "Create", "ProjetCompteRendus", null, htmlAttributes: new { @class = "btn btn-b-n" })
+    @Html.ActionLink("Ajouter une campagne de levée de fond", "Create", "CampagneLeveeFonds", null, htmlAttributes: new { @class = "btn btn-b-n" })
+    @Html.ActionLink("Voir les campagnes de levée de fond", "Index", "CampagneLeveeFonds", null, htmlAttributes: new { @class = "btn btn-b-n" })
+    <p>
+    </p>
+    <p>
+        @Html.ActionLink("Retour à la liste", "Index")
+    </p>
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

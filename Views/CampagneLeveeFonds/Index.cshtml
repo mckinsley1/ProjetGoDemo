@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProjetGo.CampagneLeveeFond>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Les campagnes de levée de fond</h2>
+
+<p>
+    @Html.ActionLink("Nouvelle campagne", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Titre
+        </th>
+        <th>
+            Date début
+        </th>
+        <th>
+            Date fin
+        </th>
+        <th>
+            Montant cible
+        </th>
+        <th>
+            Total
+        </th>
+        <th>
+            Projet
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titreCampagneLeveeFond)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateDebutCampagneLeveeFond)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateFinCampagneLeveeFond)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.montantCibleCampagneLeveeFond)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalRealiseCampagneLeveeFond)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Projet.titreProjet)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.codeCampagneLeveeFond }) |
+                @Html.ActionLink("Détails", "Details", new { id = item.codeCampagneLeveeFond }) |
+                @Html.ActionLink("Effacer", "Delete", new { id = item.codeCampagneLeveeFond })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,73 @@
+﻿@model ProjetGo.CampagneLeveeFond
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer</h2>
+
+<h3>Voulez-vous vraiment supprimer la campagne : @Html.DisplayFor(model => model.titreCampagneLeveeFond)?</h3>
+<div>
+    <h4>CampagneLeveeFond</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Titre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titreCampagneLeveeFond)
+        </dd>
+
+        <dt>
+            Date début
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateDebutCampagneLeveeFond)
+        </dd>
+
+        <dt>
+            Date fin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateFinCampagneLeveeFond)
+        </dd>
+
+        <dt>
+            Montant cible
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.montantCibleCampagneLeveeFond)
+        </dd>
+
+        <dt>
+            Total
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalRealiseCampagneLeveeFond)
+        </dd>
+
+        <dt>
+            Projet
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Projet.titreProjet)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Effacer" class="btn btn-danger" /> |
+            <button class="btn btn-b-n">@Html.ActionLink("Retour à la liste", "Index")</button>
+        </div>
+    }
+</div>

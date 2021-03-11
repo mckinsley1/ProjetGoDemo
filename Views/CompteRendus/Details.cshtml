@@ -1,0 +1,42 @@
+﻿@model ProjetGo.CompteRendu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Détails</h2>
+
+<div>
+    <h4>Compte Rendu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Fréquence
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.frequenceCompteRendu)
+        </dd>
+
+        <dt>
+            Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateCompteRendu)
+        </dd>
+
+        <dt>
+            Réalisations complétés
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjetCompteRendu.realisationsCompletees)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.codeCompteRendu }) |
+    @Html.ActionLink("Retour à la liste", "Index")
+</p>

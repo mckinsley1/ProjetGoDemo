@@ -1,0 +1,121 @@
+﻿@model ProjetGo.Projet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer</h2>
+
+<h3>Voulez-vous vraiment supprimer le projet: @Html.DisplayFor(model => model.titreProjet) ?</h3>
+<div>
+    <h4>Projet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Titre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titreProjet)
+        </dd>
+
+        <dt>
+            Description
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descriptionCourteProjet)
+        </dd>
+
+        <dt>
+            But
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.butProjet)
+        </dd>
+
+        <dt>
+            Objectif
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.objectifProjet)
+        </dd>
+
+        <dt>
+            Statut
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statutProjet)
+        </dd>
+
+        <dt>
+            Bénéfices
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.beneficesEscomptees)
+        </dd>
+
+        <dt>
+            Date début estimée
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateDebutEstimeeProjet)
+        </dd>
+
+        <dt>
+            Budget
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.budgetProjet)
+        </dd>
+
+        <dt>
+            Date début réelle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateDebutReelleProjet)
+        </dd>
+
+        <dt>
+            Date fin réelle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateFinReelleProjet)
+        </dd>
+
+        <dt>
+            Code fichier
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codefichier)
+        </dd>
+
+        <dt>
+            Compter rendu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjetCompteRendu.realisationsCompletees)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Effacer" class="btn btn-danger" /> |
+            @Html.ActionLink("Retour à la liste", "Index")
+        </div>
+    }
+</div>

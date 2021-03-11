@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Membre";
+}
+
+<!-- ======= Membre Section ======= -->
+
+<div class="container">
+    <header class="bg-primary py-5 mb-5">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-12">
+                    <h1 class="display-4 text-white mt-5 mb-2">Devenir membre de ProjetGo</h1>
+                    <p class="lead mb-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste ipsa cumque unde nisi, totam quas ipsam.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="signup-form">
+        <form action="/examples/actions/membre.php" method="post">
+            <h2>Devenir membre</h2>
+            <p class="hint-text">Devenez membre et proposer vos projets!</p>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="Votre prénom" required="required"></div>
+                    <div class="col"><input type="text" class="form-control" name="last_name" placeholder="votre nom" required="required"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="email" class="form-control" name="email" placeholder="Votre courriel" required="required"></div>
+                    <div class="col"><input type="text" class="form-control" name="phone" placeholder="votre téléphone" required="required"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="adress" placeholder="Votre adresse" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Votre mot de passe" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="confirm_password" placeholder="Corfirmer votre mot de passe" required="required">
+            </div>
+            <div class="form-group">
+                <label class="form-check-label">
+                    <input type="checkbox" required="required"> J'accepte les <a href="#">Termes et conditions </a>
+                    &amp; <a href="#">
+                        Politique de confidentialité
+                    </a>
+                </label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-b-n btn-lg btn-block">Payer ma cotisation - 20$</button>
+            </div>
+        </form>
+        <div class="text-center">
+            Vous avez déjà un compte? <a href="#">Se connecter</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                        <!-- Credit card form tabs -->
+                        <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                            <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link active "> <i class="fa fa-credit-card-alt"></i> Carte crédit </a> </li>
+                            <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fa fa-paypal"></i> Paypal </a> </li>
+
+                        </ul>
+                    </div> <!-- End -->
+                    <!-- Credit card form content -->
+                    <div class="tab-content">
+                        <!-- credit card info-->
+                        <div id="credit-card" class="tab-pane fade show active pt-2">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="username">
+                                        <h6>Propriétaire de la carte</h6>
+                                    </label> <input type="text" name="username" placeholder="Nom du propriétaire de la carte" required class="form-control ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardNumber">
+                                        <h6>Numéro de la carte</h6>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" name="cardNumber" placeholder="Numéro de carte valide" class="form-control " required>
+                                        <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-amex"></i> </span> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <label>
+                                                <span class="hidden-xs">
+                                                    <h6>Date d'expiration</h6>
+                                                </span>
+                                            </label>
+                                            <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required> <input type="number" placeholder="YY" name="" class="form-control" required> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group mb-4">
+                                            <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                                <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                            </label> <input type="text" required class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer"> <button type="button" class="subscribe btn btn-b-n btn-block shadow-sm"> Confirmer le paiement </button></div>
+                            </form>
+                        </div>
+                    </div> <!-- End -->
+                    <!-- Paypal info -->
+                    <div id="paypal" class="tab-pane fade pt-2">
+                        <h6 class="pb-2">Sélectionnez votre type de compte paypal</h6>
+                        <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked> Domestic </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">International </label></div>
+                        <p> <button type="button" class="btn btn-b-n "><i class="fa fa-paypal"></i> Connectez-moi à mon Paypal</button> </p>
+                        <p class="text-muted">
+                            Remarque: après avoir cliqué sur le bouton, vous serez dirigé vers une passerelle sécurisée pour le paiement. Une fois le processus de paiement terminé, vous serez redirigé vers le site Web pour afficher les détails de votre commande.
+                        </p>
+                    </div> <!-- End -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

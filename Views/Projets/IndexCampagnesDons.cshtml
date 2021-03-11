@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ProjetGo.Don>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<h2>Informations sur le donate</h2>
+<table class="table">
+    <tr>
+        <th>
+            Prénom
+        </th>
+        <th>
+            Montant
+        </th>
+        <th>
+            Date du don
+        </th>
+        <th>
+            E-mail
+        </th>
+        <th>
+            Téléphone
+        </th>
+        <th>
+            Titre de la campagne
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.prenomDonateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.montantDon)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.dateDon)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.emailDonateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numPhoneDonateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampagneLeveeFond.titreCampagneLeveeFond)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.codeDon }) |
+                @Html.ActionLink("Details", "Details", new { id = item.codeDon }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.codeDon })
+            </td>
+        </tr>
+    }
+
+</table>

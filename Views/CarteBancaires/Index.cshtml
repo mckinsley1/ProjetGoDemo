@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ProjetGo.CarteBancaire>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cartes bancaires</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Date d'expiration
+        </th>
+        <th>
+            Nom
+        </th>
+        <th>
+            Adresse
+        </th>
+        <th>
+            Ville
+        </th>
+        <th>
+            Province
+        </th>
+        <th>
+            Code postal
+        </th>
+        <th>
+            Numéro controle
+        </th>
+        <th>
+            Statut
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateExpirationCateBancaire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomDetenteurCarteBancaire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresseDetenteurCarteBaincaire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.villeDetenteurCarteBaincaire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.provinceDetenteurCarteBaincaire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cpDetenteurCarteBaincaire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numeroControleCarteBancaire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Membre.nomStatut)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.numeroCarteBancaire }) |
+                @Html.ActionLink("Détails", "Details", new { id = item.numeroCarteBancaire }) |
+                @Html.ActionLink("Effacer", "Delete", new { id = item.numeroCarteBancaire })
+            </td>
+        </tr>
+    }
+
+</table>

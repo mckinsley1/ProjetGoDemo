@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ProjetGo.Utilisateur>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Utilisateurs</h2>
+
+<p>
+    @Html.ActionLink("Ajouter un utilisateur", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nom
+        </th>
+        <th>
+            Prénom
+        </th>
+        <th>
+            Courriel
+        </th>
+        <th>
+            Mot de passe
+        </th>
+        <th>
+            Téléphone
+        </th>
+        <th>
+            Adresse
+        </th>
+        <th>
+            Ville
+        </th>
+        <th>
+            Code postal
+        </th>
+        <th>
+            Pays
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prenomUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.passwordUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numPhoneUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresseUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.villeUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cpUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paysUser)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.codeUser }) |
+                @Html.ActionLink("Détails", "Details", new { id = item.codeUser }) |
+                @Html.ActionLink("Effacer", "Delete", new { id = item.codeUser })
+            </td>
+        </tr>
+    }
+
+</table>

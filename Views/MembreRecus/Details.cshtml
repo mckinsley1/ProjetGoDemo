@@ -1,0 +1,42 @@
+﻿@model ProjetGo.MembreRecu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Détails</h2>
+
+<div>
+    <h4>Reçu membre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Date recrutement
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateRecuMembre)
+        </dd>
+
+        <dt>
+           Total
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalRecuMembre)
+        </dd>
+
+        <dt>
+            Nom détenteur carte
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarteBancaire.nomDetenteurCarteBancaire)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.codeRecuMembre }) |
+    @Html.ActionLink("Retour à la liste", "Index")
+</p>

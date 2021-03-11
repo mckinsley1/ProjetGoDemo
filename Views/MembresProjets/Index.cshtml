@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ProjetGo.MembresProjet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Tous les membres du projet</h2>
+
+    <p>
+        @Html.ActionLink("Ajouter un membre", "Create")
+    </p>
+    <table class="table">
+        <tr>
+
+            <th>
+                Responsable projet
+            </th>
+            <th>
+                Code Membre
+            </th>
+            <th>
+                Projet
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.responsableProjet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Membre.codeUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Projet.titreProjet)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.codeMembreProjet }) |
+                    @Html.ActionLink("Détails", "Details", new { id = item.codeMembreProjet }) |
+                    @Html.ActionLink("Effacer", "Delete", new { id = item.codeMembreProjet })
+                </td>
+            </tr>
+        }
+
+    </table>

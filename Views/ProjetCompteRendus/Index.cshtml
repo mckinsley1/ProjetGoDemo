@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ProjetGo.ProjetCompteRendu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tous les comptes rendus</h2>
+
+<p>
+    @Html.ActionLink("Ajouter un compe rendu", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Réalisations complétés
+        </th>
+        <th>
+            Date de fin estimée
+        </th>
+        <th>
+            Échéancier
+        </th>
+        <th>
+            Total collecté
+        </th>
+        <th>
+            Total dépense
+        </th>
+        <th>
+            État avancement
+        </th>
+        <th>
+            État risque
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.realisationsCompletees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateFinEstimee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.echeancier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalFondsCollectes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalDepenses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.etatAvancement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.etatRisques)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.codeProjetCompteRendu }) |
+                @Html.ActionLink("Détails", "Details", new { id = item.codeProjetCompteRendu }) |
+                @Html.ActionLink("Effacer", "Delete", new { id = item.codeProjetCompteRendu })
+            </td>
+        </tr>
+    }
+
+</table>

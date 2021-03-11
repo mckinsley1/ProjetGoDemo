@@ -1,0 +1,82 @@
+﻿@model ProjetGo.CarteBancaire
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Détails</h2>
+
+<div>
+    <h4>Carte Bancaire</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Date d'expiration
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateExpirationCateBancaire)
+        </dd>
+
+        <dt>
+            Nom
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomDetenteurCarteBancaire)
+        </dd>
+
+        <dt>
+            Adresse
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adresseDetenteurCarteBaincaire)
+        </dd>
+
+        <dt>
+            Ville
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.villeDetenteurCarteBaincaire)
+        </dd>
+
+        <dt>
+            Province
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.provinceDetenteurCarteBaincaire)
+        </dd>
+
+        <dt>
+            Code postal
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpDetenteurCarteBaincaire)
+        </dd>
+
+        <dt>
+            Numéro controle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroControleCarteBancaire)
+        </dd>
+
+        <dt>
+            Statut
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Membre.nomStatut)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.numeroCarteBancaire }) |
+    @Html.ActionLink("Retour à la liste", "Index")
+</p>

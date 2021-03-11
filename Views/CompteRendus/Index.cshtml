@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProjetGo.CompteRendu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tous les comptes rendu</h2>
+
+<p>
+    @Html.ActionLink("Ajouter un compte rendu", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Fréquence
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateCompteRendu)
+        </th>
+        <th>
+            Réalisations complétées
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.frequenceCompteRendu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateCompteRendu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjetCompteRendu.realisationsCompletees)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.codeCompteRendu }) |
+                @Html.ActionLink("Détails", "Details", new { id = item.codeCompteRendu }) |
+                @Html.ActionLink("Effacer", "Delete", new { id = item.codeCompteRendu })
+            </td>
+        </tr>
+    }
+
+</table>

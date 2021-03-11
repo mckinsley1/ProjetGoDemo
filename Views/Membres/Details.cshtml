@@ -1,0 +1,48 @@
+﻿@model ProjetGo.Membre
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Détails</h2>
+
+<div>
+    <h4>Membre: @Html.DisplayNameFor(model => model.Utilisateur.nomUser) </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Date d'adhésion
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateAdhesionMembre)
+        </dd>
+
+        <dt>
+            Statut
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomStatut)
+        </dd>
+
+        <dt>
+            Nom
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilisateur.nomUser)
+        </dd>
+        <dt>
+            Prénom
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilisateur.prenomUser)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.codeMembre }) |
+    @Html.ActionLink("Retour à la liste", "Index")
+</p>

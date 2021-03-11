@@ -1,0 +1,109 @@
+﻿@model IEnumerable<ProjetGo.Don>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tous les dons</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Rapport Dons" class="btn btn-b-n" />
+        </div>
+    </div>
+}
+
+    <p>
+        @Html.ActionLink("Ajouter un don", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Montant
+            </th>
+            <th>
+                Type de paiement
+            </th>
+            <th>
+                Prénom
+            </th>
+            <th>
+                Nom
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Courriel
+            </th>
+            <th>
+                Téléphone
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Ville
+            </th>
+            <th>
+                Code postal
+            </th>
+            <th>
+                Pays
+            </th>
+            <th>
+                Campagne levée de fond
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.montantDon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.typePaiementDon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prenomDonateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nomDonateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateDon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailDonateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numPhoneDonateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adresseDonateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.villeDonateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cpDonateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaysDonateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CampagneLeveeFond.titreCampagneLeveeFond)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.codeDon }) |
+                    @Html.ActionLink("Détails", "Details", new { id = item.codeDon }) |
+                    @Html.ActionLink("Effacer", "Delete", new { id = item.codeDon })
+                </td>
+            </tr>
+        }
+
+    </table>

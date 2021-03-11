@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProjetGo.Projet>
+
+<h2>Tous nos projets</h2>
+<table class="table">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Titre
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Budget
+        </th>
+        <th>
+            Date début
+        </th>
+        <th>
+            Date fin
+        </th>
+        <th>
+            Réalisations complétées
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codeProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.titreProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descriptionCourteProjet)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.budgetProjet)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.dateDebutEstimeeProjet)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.dateFinReelleProjet)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjetCompteRendu.realisationsCompletees)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "DetailsPublic", new { id = item.codeProjet })
+
+            </td>
+        </tr>
+    }
+
+</table>

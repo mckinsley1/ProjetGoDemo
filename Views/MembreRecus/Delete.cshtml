@@ -1,0 +1,48 @@
+﻿@model ProjetGo.MembreRecu
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer</h2>
+
+<h3>Voulez-vous vraiment supprimer ce reçu?</h3>
+<div>
+    <h4>Tous les reçus</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Date recrutement
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateRecuMembre)
+        </dd>
+
+        <dt>
+            Total
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalRecuMembre)
+        </dd>
+
+        <dt>
+            Nom détenteur carte
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarteBancaire.nomDetenteurCarteBancaire)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Enregistrer" class="btn btn-danger" /> |
+            @Html.ActionLink("Retour à la liste", "Index")
+        </div>
+    }
+</div>

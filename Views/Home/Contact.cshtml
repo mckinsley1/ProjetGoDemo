@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<!-- ======= Contact Section ======= -->
+<div class="map-section">
+</div>
+<img src="~/Content/images/ProjetGo-pic01.jpg" alt="" />
+
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="row justify-content-center" data-aos="fade-up">
+
+            <div class="col-lg-10">
+
+                <div class="info-wrap">
+                    <div class="row" a>
+                        <div class="col-lg-4 info">
+                            <i class="fa fa-map-marker"></i>
+                            <h4>Adresse:</h4>
+                            <p>6400 16e Avenue, Montréal, QC H1X 2S9</p>
+                        </div>
+
+                        <div class="col-lg-4 info mt-4 mt-lg-0">
+                            <i class="fa fa-envelope"></i>
+                            <h4>Courriels:</h4>
+                            <p>info@projetgo.com<br>membre@projetgo.com</p>
+                        </div>
+
+                        <div class="col-lg-4 info mt-4 mt-lg-0">
+                            <i class="fa fa-phone"></i>
+                            <h4>Téléphones:</h4>
+                            <p>+1 514-123-4567<br>+1 800 514-987-1256</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+            <div class="col-lg-10">
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <div class="validate"></div>
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Votre courriel" data-rule="email" data-msg="Please enter a valid email" />
+                            <div class="validate"></div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="
+S'il vous plaît écrivez quelque chose pour nous" placeholder="Message"></textarea>
+                        <div class="validate"></div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Votre message a bien été envoyé. Nous vous réponderons dans les plus brefs délais!</div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-b-n">
+                            Envoyer
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->

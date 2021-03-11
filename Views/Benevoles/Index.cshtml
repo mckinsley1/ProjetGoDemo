@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProjetGo.Benevole>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tous les bénévoles</h2>
+
+<p>
+    @Html.ActionLink("Ajouter un bénévole", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Date d'adhesion
+        </th>
+        <th>
+            Nom
+        </th>
+        <th>
+            Prénom
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateAdhesionBenevole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilisateur.nomUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilisateur.prenomUser)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.codeBenevole }) |
+                @Html.ActionLink("Détails", "Details", new { id = item.codeBenevole }) |
+                @Html.ActionLink("Effacer", "Delete", new { id = item.codeBenevole })
+            </td>
+        </tr>
+    }
+
+</table>

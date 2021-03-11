@@ -1,0 +1,134 @@
+﻿@model ProjetGo.Projet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.titreProjet)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Code
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codeProjet)
+        </dd>
+        <dt>
+            Titre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titreProjet)
+        </dd>
+
+        <dt>
+            Description
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descriptionCourteProjet)
+        </dd>
+
+        <dt>
+            But
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.butProjet)
+        </dd>
+
+        <dt>
+            Objectif
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.objectifProjet)
+        </dd>
+
+        <dt>
+            Statut
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statutProjet)
+        </dd>
+
+        <dt>
+            Bénéfices
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.beneficesEscomptees)
+        </dd>
+
+        <dt>
+            Date début estimée
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateDebutEstimeeProjet)
+        </dd>
+
+        <dt>
+            Budget
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.budgetProjet)
+        </dd>
+
+        <dt>
+            Date début réelle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateDebutReelleProjet)
+        </dd>
+
+        <dt>
+            Date fin réelle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateFinReelleProjet)
+        </dd>
+
+        <dt>
+            Image
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codefichier)
+        </dd>
+
+        <dt>
+            Realisations complétées
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjetCompteRendu.realisationsCompletees)
+        </dd>
+        @{
+            Html.RenderAction("ListeCompteRendu", "Projets");
+        }
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Voir tous les membres", "Index", "MembresProjets", null, htmlAttributes: new { @class = "btn btn-b-n" })
+    @Html.ActionLink("Voir tous les bénévoles", "Index", "BenevolesProjets", null, htmlAttributes: new { @class = "btn btn-b-n" })
+
+    @Html.ActionLink("Ajouter un compte rendu", "Create", "ProjetCompteRendus", null, htmlAttributes: new { @class = "btn btn-b-n" })
+    @Html.ActionLink("Ajouter une campagne de levée de fond", "Create", "CampagneLeveeFonds", null, htmlAttributes: new { @class = "btn btn-b-n" })
+    @Html.ActionLink("Voir les campagnes de levée de fond", "Index", "CampagneLeveeFonds", null, htmlAttributes: new { @class = "btn btn-b-n" })
+
+</p>
+<p>
+
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.codeProjet }) |
+    @Html.ActionLink("Retour à la liste", "Index")
+</p>

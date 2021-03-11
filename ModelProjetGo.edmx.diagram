@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="98fe5c22a5a9409fa01e27db36bd188c" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjetGo_dbModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.AspNetRole" Width="1.5" PointX="9.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.AspNetUserClaim" Width="1.5" PointX="14.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.AspNetUserLogin" Width="1.5" PointX="14.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.AspNetUser" Width="1.5" PointX="12" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.Benevole" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.BenevolesProjet" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.CampagneLeveeFond" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.CarteBancaire" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.CompteRendu" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.Don" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.Fichier" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.Membre" Width="1.5" PointX="6" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.MembreRecu" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.MembresProjet" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.Projet" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.ProjetCompteRendu" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetGo_dbModel.Utilisateur" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_Benevole_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_BenevolesProjet_Benevole" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_BenevolesProjet_Projet" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_CampagneLeveeFond_Projet" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_Don_CampagneLeveeFond" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_CarteBancaire_Membre" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_MembreRecu_CarteBancaire" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_CompteRendu_ProjetCompteRendu" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_Projet" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_Membre_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_MembresProjet_Membre" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_MembresProjet_Projet1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.FK_Projet_ProjetCompteRendu" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetGo_dbModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

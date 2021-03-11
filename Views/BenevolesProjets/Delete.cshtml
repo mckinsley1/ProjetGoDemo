@@ -1,0 +1,41 @@
+﻿@model ProjetGo.BenevolesProjet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer</h2>
+
+<h3>>Voulez-vous vraiment supprimer le membre: @Html.DisplayFor(model => model.Benevole.codeBenevole)</h3>
+<div>
+    <h4>BenevolesProjet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Code bénévole
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Benevole.codeBenevole)
+        </dd>
+
+        <dt>
+            Projet
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Projet.titreProjet)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Effacer" class="btn btn-danger" /> |
+            <button class="btn btn-b-n">@Html.ActionLink("Retour à la liste", "Index")</button>
+        </div>
+    }
+</div>

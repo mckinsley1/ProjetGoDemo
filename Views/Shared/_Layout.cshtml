@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mon application ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/font-awesome.min.css")
+
+</head>
+<body>
+    <nav class="navbar navbar-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <form class="navbar-form navbar" action="/action_page.php">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="list-inline-item">
+                    <a href="#">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                </li>
+
+                <li class="list-inline-item">
+                    <a href="#">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">
+                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li> @Html.Partial("_LoginPartial")</li>
+                <!-- <li class="dropdown-right">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user-circle"></i> Pierre Jean Jacques <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                    <li><a href="#">Mes Projets</a></li>
+                    <li><a href="#">Mon compte</a></li>
+                    <li><a href="#">Déconnection</a></li>
+                </ul>-->
+            </ul>
+
+        </div>
+    </nav>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("ProjetGo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+                <ul class="nav navbar-nav">
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mes projets</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Dont je suis responsable", "Index", "Projets")</li>
+                                    <li>@Html.ActionLink("Dont je suis membre ou bénévole", "IndexMB", "Projets")</li>
+                                </ul>
+                            </li>
+                    }
+                            
+                            <li>@Html.ActionLink("Projets", "IndexPublic", "Projets")</li>
+                            <li>@Html.ActionLink("À propos de", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                <button type="button" class="btn btn-b-n btn-right">@Html.ActionLink("Faire un dons", "Create", "Dons")</button>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <section class="section-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="widget-a">
+                            <div class="w-header-a">
+                                <h3 class="w-title-a text-brand">ProjetGo</h3>
+                            </div>
+                            <div class="w-body-a">
+                                <p class="w-text-a color-text-a">
+                                    Nous encourageons le développement de la solidarité par l’entremise de
+                                    l’entreprenariat et des projets communautaires.
+                                </p>
+                            </div>
+                            <div class="w-footer-a">
+                                <ul class="list-unstyled">
+                                    <li class="color-a">
+                                        <span class="color-text-a">Courriel .</span> info@projetgo.com
+                                    </li>
+                                    <li class="color-a">
+                                        <span class="color-text-a">Téléphone</span> +1 514-123-4567
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 section-md-t3">
+                        <div class="widget-a">
+                            <div class="w-header-a">
+                                <h3 class="w-title-a text-brand">L'organisme</h3>
+                            </div>
+                            <div class="w-body-a">
+                                <div class="w-body-a">
+                                    <ul class="list-unstyled">
+                                        <li class="item-list-a">
+                                            <i class="fa fa-angle-right"></i> @Html.ActionLink("À propos de", "About", "Home")
+                                        </li>
+                                        <li class="item-list-a">
+                                            <i class="fa fa-angle-right"></i> @Html.ActionLink("Contact", "Contact", "Home")
+                                        </li>
+                                        <li class="item-list-a">
+                                            <i class="fa fa-angle-right"></i> @Html.ActionLink("Devenir membre", "Create", "Membres")
+                                        </li>
+                                        <li class="item-list-a">
+                                            <i class="fa fa-angle-right"></i> @Html.ActionLink("Devenir bénébole", "Create", "Benevoles")
+                                        </li>
+                                        <li class="item-list-a">
+                                            <i class="fa fa-angle-right"></i>  @Html.ActionLink("Connexion", "Register", "Account")
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 section-md-t3">
+                        <div class="widget-a">
+                            <div class="w-header-a">
+                                <h3 class="w-title-a text-brand">Projets</h3>
+                            </div>
+                            <div class="w-body-a">
+                                <ul class="list-unstyled">
+                                    <li class="item-list-a">
+                                        <i class="fa fa-angle-right"></i> <a href="http://projetgo.azurewebsites.net/Projets/DetailsPublic/3">Bibliothèque locale</a>
+                                    </li>
+                                    <li class="item-list-a">
+                                        <i class="fa fa-angle-right"></i> <a href="http://projetgo.azurewebsites.net/Projets/DetailsPublic/4">Nettoyage parcs et écoles</a>
+                                    </li>
+                                    <li class="item-list-a">
+                                        <i class="fa fa-angle-right"></i> <a href="http://projetgo.azurewebsites.net/Projets/DetailsPublic/5">Confection trousses</a>
+                                    </li>
+                                    <li class="item-list-a">
+                                        <i class="fa fa-angle-right"></i> <a href="http://projetgo.azurewebsites.net/Projets/DetailsPublic/6">Collation nutritive</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+
+                        <div class="socials-a">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="copyright-footer">
+                            <p class="copyright color-text-a">
+                                &copy; Copyright
+                                <span class="color-a">ProjetGo</span>Tous droits réservés.
+                            </p>
+                        </div>
+                        <div class="credits">
+                            <!--
+                              Licensing information: https://bootstrapmade.com/license/
+                            -->
+                            Conçu par Équipe 3
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- End  Footer -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        <div id="preloader"></div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

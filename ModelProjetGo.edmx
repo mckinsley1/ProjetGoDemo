@@ -1,0 +1,1293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjetGo_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Benevole">
+          <Key>
+            <PropertyRef Name="codeBenevole" />
+          </Key>
+          <Property Name="codeBenevole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateAdhesionBenevole" Type="date" />
+          <Property Name="codeUser" Type="int" />
+        </EntityType>
+        <EntityType Name="BenevolesProjet">
+          <Key>
+            <PropertyRef Name="codeBenevoleProjet" />
+          </Key>
+          <Property Name="codeBenevoleProjet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codeProjet" Type="int" Nullable="false" />
+          <Property Name="codeBenevole" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CampagneLeveeFond">
+          <Key>
+            <PropertyRef Name="codeCampagneLeveeFond" />
+          </Key>
+          <Property Name="codeCampagneLeveeFond" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titreCampagneLeveeFond" Type="nchar" MaxLength="32" />
+          <Property Name="dateDebutCampagneLeveeFond" Type="date" />
+          <Property Name="dateFinCampagneLeveeFond" Type="date" />
+          <Property Name="montantCibleCampagneLeveeFond" Type="money" />
+          <Property Name="totalRealiseCampagneLeveeFond" Type="money" />
+          <Property Name="codeProjet" Type="int" />
+        </EntityType>
+        <EntityType Name="CarteBancaire">
+          <Key>
+            <PropertyRef Name="numeroCarteBancaire" />
+          </Key>
+          <Property Name="numeroCarteBancaire" Type="numeric" Precision="16" Scale="0" Nullable="false" />
+          <Property Name="dateExpirationCateBancaire" Type="date" />
+          <Property Name="nomDetenteurCarteBancaire" Type="nchar" MaxLength="32" />
+          <Property Name="adresseDetenteurCarteBaincaire" Type="nchar" MaxLength="32" />
+          <Property Name="villeDetenteurCarteBaincaire" Type="nchar" MaxLength="10" />
+          <Property Name="provinceDetenteurCarteBaincaire" Type="nchar" MaxLength="20" />
+          <Property Name="cpDetenteurCarteBaincaire" Type="nchar" MaxLength="7" />
+          <Property Name="numeroControleCarteBancaire" Type="nvarchar" MaxLength="3" />
+          <Property Name="codeMembre" Type="int" />
+        </EntityType>
+        <EntityType Name="CompteRendu">
+          <Key>
+            <PropertyRef Name="codeCompteRendu" />
+          </Key>
+          <Property Name="codeCompteRendu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="frequenceCompteRendu" Type="nchar" MaxLength="32" />
+          <Property Name="dateCompteRendu" Type="date" />
+          <Property Name="codeProjetCompteRendu" Type="int" />
+        </EntityType>
+        <EntityType Name="Don">
+          <Key>
+            <PropertyRef Name="codeDon" />
+          </Key>
+          <Property Name="codeDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="montantDon" Type="money" />
+          <Property Name="typePaiementDon" Type="nchar" MaxLength="32" />
+          <Property Name="nomDonateur" Type="nchar" MaxLength="32" />
+          <Property Name="prenomDonateur" Type="nchar" MaxLength="32" />
+          <Property Name="dateDon" Type="date" />
+          <Property Name="emailDonateur" Type="nchar" MaxLength="32" />
+          <Property Name="numPhoneDonateur" Type="nchar" MaxLength="12" />
+          <Property Name="adresseDonateur" Type="nchar" MaxLength="32" />
+          <Property Name="villeDonateur" Type="nchar" MaxLength="32" />
+          <Property Name="cpDonateur" Type="nchar" MaxLength="32" />
+          <Property Name="PaysDonateur" Type="nchar" MaxLength="32" />
+          <Property Name="codeCampagneLeveeFond" Type="int" />
+        </EntityType>
+        <EntityType Name="Fichier">
+          <Key>
+            <PropertyRef Name="codefichier" />
+          </Key>
+          <Property Name="codefichier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomAltFichier" Type="nchar" MaxLength="32" />
+          <Property Name="linkFichier" Type="nchar" MaxLength="100" />
+          <Property Name="codeProjet" Type="int" />
+        </EntityType>
+        <EntityType Name="Membre">
+          <Key>
+            <PropertyRef Name="codeMembre" />
+          </Key>
+          <Property Name="codeMembre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateAdhesionMembre" Type="date" />
+          <Property Name="nomStatut" Type="nchar" MaxLength="32" />
+          <Property Name="codeUser" Type="int" />
+        </EntityType>
+        <EntityType Name="MembreRecu">
+          <Key>
+            <PropertyRef Name="codeRecuMembre" />
+          </Key>
+          <Property Name="codeRecuMembre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateRecuMembre" Type="date" />
+          <Property Name="totalRecuMembre" Type="money" />
+          <Property Name="numeroCarteBancaire" Type="numeric" Precision="16" Scale="0" />
+        </EntityType>
+        <EntityType Name="MembresProjet">
+          <Key>
+            <PropertyRef Name="codeMembreProjet" />
+          </Key>
+          <Property Name="codeMembreProjet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="responsableProjet" Type="bit" />
+          <Property Name="codeMembre" Type="int" />
+          <Property Name="codeProjet" Type="int" />
+        </EntityType>
+        <EntityType Name="Projet">
+          <Key>
+            <PropertyRef Name="codeProjet" />
+          </Key>
+          <Property Name="codeProjet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titreProjet" Type="nchar" MaxLength="32" />
+          <Property Name="descriptionCourteProjet" Type="nchar" MaxLength="255" />
+          <Property Name="butProjet" Type="nchar" MaxLength="255" />
+          <Property Name="objectifProjet" Type="nchar" MaxLength="255" />
+          <Property Name="statutProjet" Type="nchar" MaxLength="32" />
+          <Property Name="beneficesEscomptees" Type="nchar" MaxLength="255" />
+          <Property Name="dateDebutEstimeeProjet" Type="date" />
+          <Property Name="budgetProjet" Type="money" />
+          <Property Name="dateDebutReelleProjet" Type="date" />
+          <Property Name="dateFinReelleProjet" Type="date" />
+          <Property Name="codefichier" Type="int" />
+          <Property Name="codeProjetCompteRendu" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjetCompteRendu">
+          <Key>
+            <PropertyRef Name="codeProjetCompteRendu" />
+          </Key>
+          <Property Name="codeProjetCompteRendu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="realisationsCompletees" Type="nchar" MaxLength="100" />
+          <Property Name="dateFinEstimee" Type="date" />
+          <Property Name="echeancier" Type="date" />
+          <Property Name="totalFondsCollectes" Type="money" />
+          <Property Name="totalDepenses" Type="money" Nullable="false" />
+          <Property Name="etatAvancement" Type="nchar" MaxLength="10" />
+          <Property Name="etatRisques" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Utilisateurs">
+          <Key>
+            <PropertyRef Name="codeUser" />
+          </Key>
+          <Property Name="codeUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomUser" Type="nchar" MaxLength="32" />
+          <Property Name="prenomUser" Type="nchar" MaxLength="32" />
+          <Property Name="niveauAccesUser" Type="nchar" MaxLength="10" />
+          <Property Name="emailUser" Type="nchar" MaxLength="32" />
+          <Property Name="passwordUser" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="numPhoneUser" Type="nchar" MaxLength="15" />
+          <Property Name="adresseUser" Type="nchar" MaxLength="32" />
+          <Property Name="villeUser" Type="nchar" MaxLength="32" />
+          <Property Name="cpUser" Type="nchar" MaxLength="32" />
+          <Property Name="paysUser" Type="nchar" MaxLength="32" />
+        </EntityType>
+        <Association Name="FK_Benevole_User">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="0..1" />
+          <End Role="Benevole" Type="Self.Benevole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="codeUser" />
+            </Principal>
+            <Dependent Role="Benevole">
+              <PropertyRef Name="codeUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenevolesProjet_Benevole">
+          <End Role="Benevole" Type="Self.Benevole" Multiplicity="1" />
+          <End Role="BenevolesProjet" Type="Self.BenevolesProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Benevole">
+              <PropertyRef Name="codeBenevole" />
+            </Principal>
+            <Dependent Role="BenevolesProjet">
+              <PropertyRef Name="codeBenevole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenevolesProjet_Projet">
+          <End Role="Projet" Type="Self.Projet" Multiplicity="1" />
+          <End Role="BenevolesProjet" Type="Self.BenevolesProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="BenevolesProjet">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CampagneLeveeFond_Projet">
+          <End Role="Projet" Type="Self.Projet" Multiplicity="0..1" />
+          <End Role="CampagneLeveeFond" Type="Self.CampagneLeveeFond" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="CampagneLeveeFond">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarteBancaire_Membre">
+          <End Role="Membre" Type="Self.Membre" Multiplicity="0..1" />
+          <End Role="CarteBancaire" Type="Self.CarteBancaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="codeMembre" />
+            </Principal>
+            <Dependent Role="CarteBancaire">
+              <PropertyRef Name="codeMembre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompteRendu_ProjetCompteRendu">
+          <End Role="ProjetCompteRendu" Type="Self.ProjetCompteRendu" Multiplicity="0..1" />
+          <End Role="CompteRendu" Type="Self.CompteRendu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjetCompteRendu">
+              <PropertyRef Name="codeProjetCompteRendu" />
+            </Principal>
+            <Dependent Role="CompteRendu">
+              <PropertyRef Name="codeProjetCompteRendu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Don_CampagneLeveeFond">
+          <End Role="CampagneLeveeFond" Type="Self.CampagneLeveeFond" Multiplicity="0..1" />
+          <End Role="Don" Type="Self.Don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CampagneLeveeFond">
+              <PropertyRef Name="codeCampagneLeveeFond" />
+            </Principal>
+            <Dependent Role="Don">
+              <PropertyRef Name="codeCampagneLeveeFond" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Membre_User">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="0..1" />
+          <End Role="Membre" Type="Self.Membre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="codeUser" />
+            </Principal>
+            <Dependent Role="Membre">
+              <PropertyRef Name="codeUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembreRecu_CarteBancaire">
+          <End Role="CarteBancaire" Type="Self.CarteBancaire" Multiplicity="0..1" />
+          <End Role="MembreRecu" Type="Self.MembreRecu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarteBancaire">
+              <PropertyRef Name="numeroCarteBancaire" />
+            </Principal>
+            <Dependent Role="MembreRecu">
+              <PropertyRef Name="numeroCarteBancaire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembresProjet_Membre">
+          <End Role="Membre" Type="Self.Membre" Multiplicity="0..1" />
+          <End Role="MembresProjet" Type="Self.MembresProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="codeMembre" />
+            </Principal>
+            <Dependent Role="MembresProjet">
+              <PropertyRef Name="codeMembre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembresProjet_Projet1">
+          <End Role="Projet" Type="Self.Projet" Multiplicity="0..1" />
+          <End Role="MembresProjet" Type="Self.MembresProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="MembresProjet">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projet">
+          <End Role="Projet" Type="Self.Projet" Multiplicity="0..1" />
+          <End Role="Fichier" Type="Self.Fichier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="Fichier">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projet_ProjetCompteRendu">
+          <End Role="ProjetCompteRendu" Type="Self.ProjetCompteRendu" Multiplicity="0..1" />
+          <End Role="Projet" Type="Self.Projet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjetCompteRendu">
+              <PropertyRef Name="codeProjetCompteRendu" />
+            </Principal>
+            <Dependent Role="Projet">
+              <PropertyRef Name="codeProjetCompteRendu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjetGo_dbModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Benevole" EntityType="Self.Benevole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BenevolesProjet" EntityType="Self.BenevolesProjet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CampagneLeveeFond" EntityType="Self.CampagneLeveeFond" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarteBancaire" EntityType="Self.CarteBancaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompteRendu" EntityType="Self.CompteRendu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Don" EntityType="Self.Don" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fichier" EntityType="Self.Fichier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Membre" EntityType="Self.Membre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MembreRecu" EntityType="Self.MembreRecu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MembresProjet" EntityType="Self.MembresProjet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projet" EntityType="Self.Projet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjetCompteRendu" EntityType="Self.ProjetCompteRendu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateurs" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Benevole_User" Association="Self.FK_Benevole_User">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Benevole" EntitySet="Benevole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenevolesProjet_Benevole" Association="Self.FK_BenevolesProjet_Benevole">
+            <End Role="Benevole" EntitySet="Benevole" />
+            <End Role="BenevolesProjet" EntitySet="BenevolesProjet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenevolesProjet_Projet" Association="Self.FK_BenevolesProjet_Projet">
+            <End Role="Projet" EntitySet="Projet" />
+            <End Role="BenevolesProjet" EntitySet="BenevolesProjet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CampagneLeveeFond_Projet" Association="Self.FK_CampagneLeveeFond_Projet">
+            <End Role="Projet" EntitySet="Projet" />
+            <End Role="CampagneLeveeFond" EntitySet="CampagneLeveeFond" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarteBancaire_Membre" Association="Self.FK_CarteBancaire_Membre">
+            <End Role="Membre" EntitySet="Membre" />
+            <End Role="CarteBancaire" EntitySet="CarteBancaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompteRendu_ProjetCompteRendu" Association="Self.FK_CompteRendu_ProjetCompteRendu">
+            <End Role="ProjetCompteRendu" EntitySet="ProjetCompteRendu" />
+            <End Role="CompteRendu" EntitySet="CompteRendu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Don_CampagneLeveeFond" Association="Self.FK_Don_CampagneLeveeFond">
+            <End Role="CampagneLeveeFond" EntitySet="CampagneLeveeFond" />
+            <End Role="Don" EntitySet="Don" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Membre_User" Association="Self.FK_Membre_User">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Membre" EntitySet="Membre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembreRecu_CarteBancaire" Association="Self.FK_MembreRecu_CarteBancaire">
+            <End Role="CarteBancaire" EntitySet="CarteBancaire" />
+            <End Role="MembreRecu" EntitySet="MembreRecu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembresProjet_Membre" Association="Self.FK_MembresProjet_Membre">
+            <End Role="Membre" EntitySet="Membre" />
+            <End Role="MembresProjet" EntitySet="MembresProjet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembresProjet_Projet1" Association="Self.FK_MembresProjet_Projet1">
+            <End Role="Projet" EntitySet="Projet" />
+            <End Role="MembresProjet" EntitySet="MembresProjet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projet" Association="Self.FK_Projet">
+            <End Role="Projet" EntitySet="Projet" />
+            <End Role="Fichier" EntitySet="Fichier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projet_ProjetCompteRendu" Association="Self.FK_Projet_ProjetCompteRendu">
+            <End Role="ProjetCompteRendu" EntitySet="ProjetCompteRendu" />
+            <End Role="Projet" EntitySet="Projet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjetGo_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Benevole">
+          <Key>
+            <PropertyRef Name="codeBenevole" />
+          </Key>
+          <Property Name="codeBenevole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateAdhesionBenevole" Type="DateTime" Precision="0" />
+          <Property Name="codeUser" Type="Int32" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Benevole_User" FromRole="Benevole" ToRole="Utilisateurs" />
+          <NavigationProperty Name="BenevolesProjets" Relationship="Self.FK_BenevolesProjet_Benevole" FromRole="Benevole" ToRole="BenevolesProjet" />
+        </EntityType>
+        <EntityType Name="BenevolesProjet">
+          <Key>
+            <PropertyRef Name="codeBenevoleProjet" />
+          </Key>
+          <Property Name="codeBenevoleProjet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codeProjet" Type="Int32" Nullable="false" />
+          <Property Name="codeBenevole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Benevole" Relationship="Self.FK_BenevolesProjet_Benevole" FromRole="BenevolesProjet" ToRole="Benevole" />
+          <NavigationProperty Name="Projet" Relationship="Self.FK_BenevolesProjet_Projet" FromRole="BenevolesProjet" ToRole="Projet" />
+        </EntityType>
+        <EntityType Name="CampagneLeveeFond">
+          <Key>
+            <PropertyRef Name="codeCampagneLeveeFond" />
+          </Key>
+          <Property Name="codeCampagneLeveeFond" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreCampagneLeveeFond" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="dateDebutCampagneLeveeFond" Type="DateTime" Precision="0" />
+          <Property Name="dateFinCampagneLeveeFond" Type="DateTime" Precision="0" />
+          <Property Name="montantCibleCampagneLeveeFond" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="totalRealiseCampagneLeveeFond" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="codeProjet" Type="Int32" />
+          <NavigationProperty Name="Projet" Relationship="Self.FK_CampagneLeveeFond_Projet" FromRole="CampagneLeveeFond" ToRole="Projet" />
+          <NavigationProperty Name="Dons" Relationship="Self.FK_Don_CampagneLeveeFond" FromRole="CampagneLeveeFond" ToRole="Don" />
+        </EntityType>
+        <EntityType Name="CarteBancaire">
+          <Key>
+            <PropertyRef Name="numeroCarteBancaire" />
+          </Key>
+          <Property Name="numeroCarteBancaire" Type="Decimal" Precision="16" Scale="0" Nullable="false" />
+          <Property Name="dateExpirationCateBancaire" Type="DateTime" Precision="0" />
+          <Property Name="nomDetenteurCarteBancaire" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="adresseDetenteurCarteBaincaire" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="villeDetenteurCarteBaincaire" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="provinceDetenteurCarteBaincaire" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="cpDetenteurCarteBaincaire" Type="String" MaxLength="7" FixedLength="true" Unicode="true" />
+          <Property Name="numeroControleCarteBancaire" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="codeMembre" Type="Int32" />
+          <NavigationProperty Name="Membre" Relationship="Self.FK_CarteBancaire_Membre" FromRole="CarteBancaire" ToRole="Membre" />
+          <NavigationProperty Name="MembreRecus" Relationship="Self.FK_MembreRecu_CarteBancaire" FromRole="CarteBancaire" ToRole="MembreRecu" />
+        </EntityType>
+        <EntityType Name="CompteRendu">
+          <Key>
+            <PropertyRef Name="codeCompteRendu" />
+          </Key>
+          <Property Name="codeCompteRendu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="frequenceCompteRendu" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="dateCompteRendu" Type="DateTime" Precision="0" />
+          <Property Name="codeProjetCompteRendu" Type="Int32" />
+          <NavigationProperty Name="ProjetCompteRendu" Relationship="Self.FK_CompteRendu_ProjetCompteRendu" FromRole="CompteRendu" ToRole="ProjetCompteRendu" />
+        </EntityType>
+        <EntityType Name="Don">
+          <Key>
+            <PropertyRef Name="codeDon" />
+          </Key>
+          <Property Name="codeDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="montantDon" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="typePaiementDon" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="nomDonateur" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="prenomDonateur" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="dateDon" Type="DateTime" Precision="0" />
+          <Property Name="emailDonateur" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="numPhoneDonateur" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="adresseDonateur" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="villeDonateur" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="cpDonateur" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="PaysDonateur" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="codeCampagneLeveeFond" Type="Int32" />
+          <NavigationProperty Name="CampagneLeveeFond" Relationship="Self.FK_Don_CampagneLeveeFond" FromRole="Don" ToRole="CampagneLeveeFond" />
+        </EntityType>
+        <EntityType Name="Fichier">
+          <Key>
+            <PropertyRef Name="codefichier" />
+          </Key>
+          <Property Name="codefichier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomAltFichier" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="linkFichier" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="codeProjet" Type="Int32" />
+          <NavigationProperty Name="Projet" Relationship="Self.FK_Projet" FromRole="Fichier" ToRole="Projet" />
+        </EntityType>
+        <EntityType Name="Membre">
+          <Key>
+            <PropertyRef Name="codeMembre" />
+          </Key>
+          <Property Name="codeMembre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateAdhesionMembre" Type="DateTime" Precision="0" />
+          <Property Name="nomStatut" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="codeUser" Type="Int32" />
+          <NavigationProperty Name="CarteBancaires" Relationship="Self.FK_CarteBancaire_Membre" FromRole="Membre" ToRole="CarteBancaire" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Membre_User" FromRole="Membre" ToRole="Utilisateurs" />
+          <NavigationProperty Name="MembresProjets" Relationship="Self.FK_MembresProjet_Membre" FromRole="Membre" ToRole="MembresProjet" />
+        </EntityType>
+        <EntityType Name="MembreRecu">
+          <Key>
+            <PropertyRef Name="codeRecuMembre" />
+          </Key>
+          <Property Name="codeRecuMembre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateRecuMembre" Type="DateTime" Precision="0" />
+          <Property Name="totalRecuMembre" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="numeroCarteBancaire" Type="Decimal" Precision="16" Scale="0" />
+          <NavigationProperty Name="CarteBancaire" Relationship="Self.FK_MembreRecu_CarteBancaire" FromRole="MembreRecu" ToRole="CarteBancaire" />
+        </EntityType>
+        <EntityType Name="MembresProjet">
+          <Key>
+            <PropertyRef Name="codeMembreProjet" />
+          </Key>
+          <Property Name="codeMembreProjet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="responsableProjet" Type="Boolean" />
+          <Property Name="codeMembre" Type="Int32" />
+          <Property Name="codeProjet" Type="Int32" />
+          <NavigationProperty Name="Membre" Relationship="Self.FK_MembresProjet_Membre" FromRole="MembresProjet" ToRole="Membre" />
+          <NavigationProperty Name="Projet" Relationship="Self.FK_MembresProjet_Projet1" FromRole="MembresProjet" ToRole="Projet" />
+        </EntityType>
+        <EntityType Name="Projet">
+          <Key>
+            <PropertyRef Name="codeProjet" />
+          </Key>
+          <Property Name="codeProjet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreProjet" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="descriptionCourteProjet" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="butProjet" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="objectifProjet" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="statutProjet" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="beneficesEscomptees" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="dateDebutEstimeeProjet" Type="DateTime" Precision="0" />
+          <Property Name="budgetProjet" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="dateDebutReelleProjet" Type="DateTime" Precision="0" />
+          <Property Name="dateFinReelleProjet" Type="DateTime" Precision="0" />
+          <Property Name="codefichier" Type="Int32" />
+          <Property Name="codeProjetCompteRendu" Type="Int32" />
+          <NavigationProperty Name="BenevolesProjets" Relationship="Self.FK_BenevolesProjet_Projet" FromRole="Projet" ToRole="BenevolesProjet" />
+          <NavigationProperty Name="CampagneLeveeFonds" Relationship="Self.FK_CampagneLeveeFond_Projet" FromRole="Projet" ToRole="CampagneLeveeFond" />
+          <NavigationProperty Name="Fichiers" Relationship="Self.FK_Projet" FromRole="Projet" ToRole="Fichier" />
+          <NavigationProperty Name="MembresProjets" Relationship="Self.FK_MembresProjet_Projet1" FromRole="Projet" ToRole="MembresProjet" />
+          <NavigationProperty Name="ProjetCompteRendu" Relationship="Self.FK_Projet_ProjetCompteRendu" FromRole="Projet" ToRole="ProjetCompteRendu" />
+        </EntityType>
+        <EntityType Name="ProjetCompteRendu">
+          <Key>
+            <PropertyRef Name="codeProjetCompteRendu" />
+          </Key>
+          <Property Name="codeProjetCompteRendu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="realisationsCompletees" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="dateFinEstimee" Type="DateTime" Precision="0" />
+          <Property Name="echeancier" Type="DateTime" Precision="0" />
+          <Property Name="totalFondsCollectes" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="totalDepenses" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="etatAvancement" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="etatRisques" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="CompteRendus" Relationship="Self.FK_CompteRendu_ProjetCompteRendu" FromRole="ProjetCompteRendu" ToRole="CompteRendu" />
+          <NavigationProperty Name="Projets" Relationship="Self.FK_Projet_ProjetCompteRendu" FromRole="ProjetCompteRendu" ToRole="Projet" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="codeUser" />
+          </Key>
+          <Property Name="codeUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomUser" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="prenomUser" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="niveauAccesUser" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="emailUser" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="passwordUser" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="numPhoneUser" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="adresseUser" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="villeUser" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="cpUser" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="paysUser" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Benevoles" Relationship="Self.FK_Benevole_User" FromRole="Utilisateurs" ToRole="Benevole" />
+          <NavigationProperty Name="Membres" Relationship="Self.FK_Membre_User" FromRole="Utilisateurs" ToRole="Membre" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Benevole_User">
+          <End Role="Utilisateurs" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="Benevole" Type="Self.Benevole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="codeUser" />
+            </Principal>
+            <Dependent Role="Benevole">
+              <PropertyRef Name="codeUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenevolesProjet_Benevole">
+          <End Role="Benevole" Type="Self.Benevole" Multiplicity="1" />
+          <End Role="BenevolesProjet" Type="Self.BenevolesProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Benevole">
+              <PropertyRef Name="codeBenevole" />
+            </Principal>
+            <Dependent Role="BenevolesProjet">
+              <PropertyRef Name="codeBenevole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenevolesProjet_Projet">
+          <End Role="Projet" Type="Self.Projet" Multiplicity="1" />
+          <End Role="BenevolesProjet" Type="Self.BenevolesProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="BenevolesProjet">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CampagneLeveeFond_Projet">
+          <End Role="Projet" Type="Self.Projet" Multiplicity="0..1" />
+          <End Role="CampagneLeveeFond" Type="Self.CampagneLeveeFond" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="CampagneLeveeFond">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Don_CampagneLeveeFond">
+          <End Role="CampagneLeveeFond" Type="Self.CampagneLeveeFond" Multiplicity="0..1" />
+          <End Role="Don" Type="Self.Don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CampagneLeveeFond">
+              <PropertyRef Name="codeCampagneLeveeFond" />
+            </Principal>
+            <Dependent Role="Don">
+              <PropertyRef Name="codeCampagneLeveeFond" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarteBancaire_Membre">
+          <End Role="Membre" Type="Self.Membre" Multiplicity="0..1" />
+          <End Role="CarteBancaire" Type="Self.CarteBancaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="codeMembre" />
+            </Principal>
+            <Dependent Role="CarteBancaire">
+              <PropertyRef Name="codeMembre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembreRecu_CarteBancaire">
+          <End Role="CarteBancaire" Type="Self.CarteBancaire" Multiplicity="0..1" />
+          <End Role="MembreRecu" Type="Self.MembreRecu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarteBancaire">
+              <PropertyRef Name="numeroCarteBancaire" />
+            </Principal>
+            <Dependent Role="MembreRecu">
+              <PropertyRef Name="numeroCarteBancaire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompteRendu_ProjetCompteRendu">
+          <End Role="ProjetCompteRendu" Type="Self.ProjetCompteRendu" Multiplicity="0..1" />
+          <End Role="CompteRendu" Type="Self.CompteRendu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjetCompteRendu">
+              <PropertyRef Name="codeProjetCompteRendu" />
+            </Principal>
+            <Dependent Role="CompteRendu">
+              <PropertyRef Name="codeProjetCompteRendu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projet">
+          <End Role="Projet" Type="Self.Projet" Multiplicity="0..1" />
+          <End Role="Fichier" Type="Self.Fichier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="Fichier">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Membre_User">
+          <End Role="Utilisateurs" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="Membre" Type="Self.Membre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="codeUser" />
+            </Principal>
+            <Dependent Role="Membre">
+              <PropertyRef Name="codeUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembresProjet_Membre">
+          <End Role="Membre" Type="Self.Membre" Multiplicity="0..1" />
+          <End Role="MembresProjet" Type="Self.MembresProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="codeMembre" />
+            </Principal>
+            <Dependent Role="MembresProjet">
+              <PropertyRef Name="codeMembre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembresProjet_Projet1">
+          <End Role="Projet" Type="Self.Projet" Multiplicity="0..1" />
+          <End Role="MembresProjet" Type="Self.MembresProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="MembresProjet">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projet_ProjetCompteRendu">
+          <End Role="ProjetCompteRendu" Type="Self.ProjetCompteRendu" Multiplicity="0..1" />
+          <End Role="Projet" Type="Self.Projet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjetCompteRendu">
+              <PropertyRef Name="codeProjetCompteRendu" />
+            </Principal>
+            <Dependent Role="Projet">
+              <PropertyRef Name="codeProjetCompteRendu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ProjetGo_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Benevoles" EntityType="Self.Benevole" />
+          <EntitySet Name="BenevolesProjets" EntityType="Self.BenevolesProjet" />
+          <EntitySet Name="CampagneLeveeFonds" EntityType="Self.CampagneLeveeFond" />
+          <EntitySet Name="CarteBancaires" EntityType="Self.CarteBancaire" />
+          <EntitySet Name="CompteRendus" EntityType="Self.CompteRendu" />
+          <EntitySet Name="Dons" EntityType="Self.Don" />
+          <EntitySet Name="Fichiers" EntityType="Self.Fichier" />
+          <EntitySet Name="Membres" EntityType="Self.Membre" />
+          <EntitySet Name="MembreRecus" EntityType="Self.MembreRecu" />
+          <EntitySet Name="MembresProjets" EntityType="Self.MembresProjet" />
+          <EntitySet Name="Projets" EntityType="Self.Projet" />
+          <EntitySet Name="ProjetCompteRendus" EntityType="Self.ProjetCompteRendu" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateur" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Benevole_User" Association="Self.FK_Benevole_User">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Benevole" EntitySet="Benevoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenevolesProjet_Benevole" Association="Self.FK_BenevolesProjet_Benevole">
+            <End Role="Benevole" EntitySet="Benevoles" />
+            <End Role="BenevolesProjet" EntitySet="BenevolesProjets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenevolesProjet_Projet" Association="Self.FK_BenevolesProjet_Projet">
+            <End Role="Projet" EntitySet="Projets" />
+            <End Role="BenevolesProjet" EntitySet="BenevolesProjets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CampagneLeveeFond_Projet" Association="Self.FK_CampagneLeveeFond_Projet">
+            <End Role="Projet" EntitySet="Projets" />
+            <End Role="CampagneLeveeFond" EntitySet="CampagneLeveeFonds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Don_CampagneLeveeFond" Association="Self.FK_Don_CampagneLeveeFond">
+            <End Role="CampagneLeveeFond" EntitySet="CampagneLeveeFonds" />
+            <End Role="Don" EntitySet="Dons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarteBancaire_Membre" Association="Self.FK_CarteBancaire_Membre">
+            <End Role="Membre" EntitySet="Membres" />
+            <End Role="CarteBancaire" EntitySet="CarteBancaires" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembreRecu_CarteBancaire" Association="Self.FK_MembreRecu_CarteBancaire">
+            <End Role="CarteBancaire" EntitySet="CarteBancaires" />
+            <End Role="MembreRecu" EntitySet="MembreRecus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompteRendu_ProjetCompteRendu" Association="Self.FK_CompteRendu_ProjetCompteRendu">
+            <End Role="ProjetCompteRendu" EntitySet="ProjetCompteRendus" />
+            <End Role="CompteRendu" EntitySet="CompteRendus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projet" Association="Self.FK_Projet">
+            <End Role="Projet" EntitySet="Projets" />
+            <End Role="Fichier" EntitySet="Fichiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Membre_User" Association="Self.FK_Membre_User">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Membre" EntitySet="Membres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembresProjet_Membre" Association="Self.FK_MembresProjet_Membre">
+            <End Role="Membre" EntitySet="Membres" />
+            <End Role="MembresProjet" EntitySet="MembresProjets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembresProjet_Projet1" Association="Self.FK_MembresProjet_Projet1">
+            <End Role="Projet" EntitySet="Projets" />
+            <End Role="MembresProjet" EntitySet="MembresProjets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projet_ProjetCompteRendu" Association="Self.FK_Projet_ProjetCompteRendu">
+            <End Role="ProjetCompteRendu" EntitySet="ProjetCompteRendus" />
+            <End Role="Projet" EntitySet="Projets" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjetGo_dbModelStoreContainer" CdmEntityContainer="ProjetGo_dbEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Benevoles">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.Benevole">
+              <MappingFragment StoreEntitySet="Benevole">
+                <ScalarProperty Name="codeBenevole" ColumnName="codeBenevole" />
+                <ScalarProperty Name="dateAdhesionBenevole" ColumnName="dateAdhesionBenevole" />
+                <ScalarProperty Name="codeUser" ColumnName="codeUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BenevolesProjets">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.BenevolesProjet">
+              <MappingFragment StoreEntitySet="BenevolesProjet">
+                <ScalarProperty Name="codeBenevoleProjet" ColumnName="codeBenevoleProjet" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+                <ScalarProperty Name="codeBenevole" ColumnName="codeBenevole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CampagneLeveeFonds">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.CampagneLeveeFond">
+              <MappingFragment StoreEntitySet="CampagneLeveeFond">
+                <ScalarProperty Name="codeCampagneLeveeFond" ColumnName="codeCampagneLeveeFond" />
+                <ScalarProperty Name="titreCampagneLeveeFond" ColumnName="titreCampagneLeveeFond" />
+                <ScalarProperty Name="dateDebutCampagneLeveeFond" ColumnName="dateDebutCampagneLeveeFond" />
+                <ScalarProperty Name="dateFinCampagneLeveeFond" ColumnName="dateFinCampagneLeveeFond" />
+                <ScalarProperty Name="montantCibleCampagneLeveeFond" ColumnName="montantCibleCampagneLeveeFond" />
+                <ScalarProperty Name="totalRealiseCampagneLeveeFond" ColumnName="totalRealiseCampagneLeveeFond" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarteBancaires">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.CarteBancaire">
+              <MappingFragment StoreEntitySet="CarteBancaire">
+                <ScalarProperty Name="numeroCarteBancaire" ColumnName="numeroCarteBancaire" />
+                <ScalarProperty Name="dateExpirationCateBancaire" ColumnName="dateExpirationCateBancaire" />
+                <ScalarProperty Name="nomDetenteurCarteBancaire" ColumnName="nomDetenteurCarteBancaire" />
+                <ScalarProperty Name="adresseDetenteurCarteBaincaire" ColumnName="adresseDetenteurCarteBaincaire" />
+                <ScalarProperty Name="villeDetenteurCarteBaincaire" ColumnName="villeDetenteurCarteBaincaire" />
+                <ScalarProperty Name="provinceDetenteurCarteBaincaire" ColumnName="provinceDetenteurCarteBaincaire" />
+                <ScalarProperty Name="cpDetenteurCarteBaincaire" ColumnName="cpDetenteurCarteBaincaire" />
+                <ScalarProperty Name="numeroControleCarteBancaire" ColumnName="numeroControleCarteBancaire" />
+                <ScalarProperty Name="codeMembre" ColumnName="codeMembre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompteRendus">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.CompteRendu">
+              <MappingFragment StoreEntitySet="CompteRendu">
+                <ScalarProperty Name="codeCompteRendu" ColumnName="codeCompteRendu" />
+                <ScalarProperty Name="frequenceCompteRendu" ColumnName="frequenceCompteRendu" />
+                <ScalarProperty Name="dateCompteRendu" ColumnName="dateCompteRendu" />
+                <ScalarProperty Name="codeProjetCompteRendu" ColumnName="codeProjetCompteRendu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dons">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.Don">
+              <MappingFragment StoreEntitySet="Don">
+                <ScalarProperty Name="codeDon" ColumnName="codeDon" />
+                <ScalarProperty Name="montantDon" ColumnName="montantDon" />
+                <ScalarProperty Name="typePaiementDon" ColumnName="typePaiementDon" />
+                <ScalarProperty Name="nomDonateur" ColumnName="nomDonateur" />
+                <ScalarProperty Name="prenomDonateur" ColumnName="prenomDonateur" />
+                <ScalarProperty Name="dateDon" ColumnName="dateDon" />
+                <ScalarProperty Name="emailDonateur" ColumnName="emailDonateur" />
+                <ScalarProperty Name="numPhoneDonateur" ColumnName="numPhoneDonateur" />
+                <ScalarProperty Name="adresseDonateur" ColumnName="adresseDonateur" />
+                <ScalarProperty Name="villeDonateur" ColumnName="villeDonateur" />
+                <ScalarProperty Name="cpDonateur" ColumnName="cpDonateur" />
+                <ScalarProperty Name="PaysDonateur" ColumnName="PaysDonateur" />
+                <ScalarProperty Name="codeCampagneLeveeFond" ColumnName="codeCampagneLeveeFond" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fichiers">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.Fichier">
+              <MappingFragment StoreEntitySet="Fichier">
+                <ScalarProperty Name="codefichier" ColumnName="codefichier" />
+                <ScalarProperty Name="nomAltFichier" ColumnName="nomAltFichier" />
+                <ScalarProperty Name="linkFichier" ColumnName="linkFichier" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Membres">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.Membre">
+              <MappingFragment StoreEntitySet="Membre">
+                <ScalarProperty Name="codeMembre" ColumnName="codeMembre" />
+                <ScalarProperty Name="dateAdhesionMembre" ColumnName="dateAdhesionMembre" />
+                <ScalarProperty Name="nomStatut" ColumnName="nomStatut" />
+                <ScalarProperty Name="codeUser" ColumnName="codeUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MembreRecus">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.MembreRecu">
+              <MappingFragment StoreEntitySet="MembreRecu">
+                <ScalarProperty Name="codeRecuMembre" ColumnName="codeRecuMembre" />
+                <ScalarProperty Name="dateRecuMembre" ColumnName="dateRecuMembre" />
+                <ScalarProperty Name="totalRecuMembre" ColumnName="totalRecuMembre" />
+                <ScalarProperty Name="numeroCarteBancaire" ColumnName="numeroCarteBancaire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MembresProjets">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.MembresProjet">
+              <MappingFragment StoreEntitySet="MembresProjet">
+                <ScalarProperty Name="codeMembreProjet" ColumnName="codeMembreProjet" />
+                <ScalarProperty Name="responsableProjet" ColumnName="responsableProjet" />
+                <ScalarProperty Name="codeMembre" ColumnName="codeMembre" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projets">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.Projet">
+              <MappingFragment StoreEntitySet="Projet">
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+                <ScalarProperty Name="titreProjet" ColumnName="titreProjet" />
+                <ScalarProperty Name="descriptionCourteProjet" ColumnName="descriptionCourteProjet" />
+                <ScalarProperty Name="butProjet" ColumnName="butProjet" />
+                <ScalarProperty Name="objectifProjet" ColumnName="objectifProjet" />
+                <ScalarProperty Name="statutProjet" ColumnName="statutProjet" />
+                <ScalarProperty Name="beneficesEscomptees" ColumnName="beneficesEscomptees" />
+                <ScalarProperty Name="dateDebutEstimeeProjet" ColumnName="dateDebutEstimeeProjet" />
+                <ScalarProperty Name="budgetProjet" ColumnName="budgetProjet" />
+                <ScalarProperty Name="dateDebutReelleProjet" ColumnName="dateDebutReelleProjet" />
+                <ScalarProperty Name="dateFinReelleProjet" ColumnName="dateFinReelleProjet" />
+                <ScalarProperty Name="codefichier" ColumnName="codefichier" />
+                <ScalarProperty Name="codeProjetCompteRendu" ColumnName="codeProjetCompteRendu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjetCompteRendus">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.ProjetCompteRendu">
+              <MappingFragment StoreEntitySet="ProjetCompteRendu">
+                <ScalarProperty Name="codeProjetCompteRendu" ColumnName="codeProjetCompteRendu" />
+                <ScalarProperty Name="realisationsCompletees" ColumnName="realisationsCompletees" />
+                <ScalarProperty Name="dateFinEstimee" ColumnName="dateFinEstimee" />
+                <ScalarProperty Name="echeancier" ColumnName="echeancier" />
+                <ScalarProperty Name="totalFondsCollectes" ColumnName="totalFondsCollectes" />
+                <ScalarProperty Name="totalDepenses" ColumnName="totalDepenses" />
+                <ScalarProperty Name="etatAvancement" ColumnName="etatAvancement" />
+                <ScalarProperty Name="etatRisques" ColumnName="etatRisques" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs">
+            <EntityTypeMapping TypeName="ProjetGo_dbModel.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateurs">
+                <ScalarProperty Name="codeUser" ColumnName="codeUser" />
+                <ScalarProperty Name="nomUser" ColumnName="nomUser" />
+                <ScalarProperty Name="prenomUser" ColumnName="prenomUser" />
+                <ScalarProperty Name="niveauAccesUser" ColumnName="niveauAccesUser" />
+                <ScalarProperty Name="emailUser" ColumnName="emailUser" />
+                <ScalarProperty Name="passwordUser" ColumnName="passwordUser" />
+                <ScalarProperty Name="numPhoneUser" ColumnName="numPhoneUser" />
+                <ScalarProperty Name="adresseUser" ColumnName="adresseUser" />
+                <ScalarProperty Name="villeUser" ColumnName="villeUser" />
+                <ScalarProperty Name="cpUser" ColumnName="cpUser" />
+                <ScalarProperty Name="paysUser" ColumnName="paysUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="ProjetGo_dbModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

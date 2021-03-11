@@ -1,0 +1,81 @@
+﻿@model ProjetGo.ProjetCompteRendu
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer</h2>
+
+<h3>Voulez-vous vraiment supprimer ce compte rendus?</h3>
+<div>
+    <h4>Compte rendu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Réalisations complétés
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.realisationsCompletees)
+        </dd>
+
+        <dt>
+            Date fin estimé
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateFinEstimee)
+        </dd>
+
+        <dt>
+            Échéancier
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.echeancier)
+        </dd>
+
+        <dt>
+            Total collecté
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalFondsCollectes)
+        </dd>
+
+        <dt>
+            Total dépenses
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalDepenses)
+        </dd>
+
+        <dt>
+            État d'avancement
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etatAvancement)
+        </dd>
+
+        <dt>
+            Etat des risques
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etatRisques)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Effacer" class="btn btn-danger" /> |
+            <button class="btn btn-b-n">@Html.ActionLink("Retour à la liste", "Index")</button>
+        </div>
+    }
+</div>

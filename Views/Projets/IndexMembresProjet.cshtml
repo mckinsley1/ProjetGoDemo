@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ProjetGo.Projet>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Nom
+        </th>
+        <th>
+            Prenom
+        </th>
+        <th>
+            Courriel
+        </th>
+        <th>
+            Téléphone
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titreProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descriptionCourteProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.butProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.objectifProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.statutProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.beneficesEscomptees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateDebutEstimeeProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.budgetProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateDebutReelleProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateFinReelleProjet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codefichier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjetCompteRendu.realisationsCompletees)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.codeProjet }) |
+                @Html.ActionLink("Details", "Details", new { id = item.codeProjet }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.codeProjet })
+            </td>
+        </tr>
+    }
+
+</table>
